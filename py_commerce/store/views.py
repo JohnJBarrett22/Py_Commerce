@@ -1,9 +1,14 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from . models import Product
 
 # Create your views here.
 
-def store(request):
+def store(request, category_slug=None):
+    categories = None
+    products = None
+    
+    if category_slug != None:
+        catgories = get_object_or_404(Category, category_slug=slug)
     products = Product.objects.all().filter(is_available=True)
     product_count = products.count()
 
