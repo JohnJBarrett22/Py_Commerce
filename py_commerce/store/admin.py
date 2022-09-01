@@ -9,7 +9,6 @@ class ProductAdmin(admin.ModelAdmin):
 
 class VariationAdmin(admin.ModelAdmin):
     list_display = ('product', 'variation_category', 'variation_value', 'is_active')
-    prepopulated_fields = {'slug': ('variation_value',)}
     list_editable = ('is_active',)
     list_filter = ('product', 'variation_category', 'variation_value')
 
